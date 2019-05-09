@@ -10,4 +10,8 @@ class Publikasi extends Model
     protected $guarded = [];
 
     // Tambahkan Kode yang diperlukan dibawah ini
+    public function anggotas() 
+    {
+    	return $this->hasMany(PublikasiDosen::class);
+    }
 }
