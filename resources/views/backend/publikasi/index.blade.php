@@ -55,6 +55,7 @@
                                     {!! cui_btn_view(route('admin.publikasi.show', [$publikasi->id])) !!}
                                     {!! cui_btn_edit(route('admin.publikasi.edit', [$publikasi->id])) !!}
                                     {!! cui_btn_delete(route('admin.publikasi.destroy', [$publikasi->id]), "Anda yakin akan menghapus data publikasi ini?") !!}
+                                    {!! cui_btn(route('admin.publikasi.index', [$publikasi->id]), 'icon-people','Anggota')!!}
                                 </td>
                             </tr>
                         @empty
