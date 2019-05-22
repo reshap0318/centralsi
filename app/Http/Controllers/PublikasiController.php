@@ -61,8 +61,8 @@ class PublikasiController extends Controller
 
     	return redirect()->route('admin.publikasi.show', [$publikasi]);
     }
-    public function show(Publikasi $publikasi)
+    public function edit(Publikasi $publikasi)
     {
-
+		return view('backend.publikasi.edit', compact('publikasi'));
     }
 }
