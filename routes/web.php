@@ -42,14 +42,18 @@ Route::middleware(['auth'])->group( function(){
 
     /** Routing untuk tugas mulai dari sini */
     /** Publikasi dosen*/
-    Route::get('/admin/publikasi', 'PublikasiController@index')->name('admin.publikasi.index');  //routing lihat daftar mahasiswa
-    Route::post('/admin/publikasi', 'PublikasiController@store')->name('admin.publikasi.store'); //routing simpan data mahasiswa baru
-    Route::get('/admin/publikasi/create', 'PublikasiController@create')->name('admin.publikasi.create'); //routing tampilkan form data mahasiswa baru
-    Route::delete('/admin/publikasi/{publikasi}', 'PublikasiController@destroy')->name('admin.publikasi.destroy'); //routing hapus data mahasiswa baru
-    Route::patch('/admin/publikasi/{publikasi}', 'PublikasiController@update')->name('admin.publikasi.update'); //routing simpan perubahan data mahasiswa
-    Route::get('/admin/publikasi/{publikasi}', 'PublikasiController@show')->name('admin.publikasi.show'); //routing tampilkan detail mahasiswa
-    Route::get('/admin/publikasi/{publikasi}/edit', 'PublikasiController@edit')->name('admin.publikasi.edit');  //routing tampilkan form edit mahasiswa
-    Route::get('/admin/publikasi', 'PublikasiController@index')->name('admin.publikasi.index');  //routing lihat daftar mahasiswa
+    Route::get('/admin/publikasi/create', 'PublikasiController@create')->name('admin.publikasi.create'); 
+    Route::delete('/admin/publikasi/{publikasi}', 'PublikasiController@destroy')->name('admin.publikasi.destroy'); 
+    Route::patch('/admin/publikasi/{publikasi}', 'PublikasiController@update')->name('admin.publikasi.update'); 
+    Route::get('/admin/publikasi/{publikasi}', 'PublikasiController@show')->name('admin.publikasi.show'); 
+    Route::get('/admin/publikasi/{publikasi}/edit', 'PublikasiController@edit')->name('admin.publikasi.edit');  
+    Route::get('/admin/publikasi', 'PublikasiController@index')->name('admin.publikasi.index');  
+    Route::post('/admin/publikasi', 'PublikasiController@store')->name('admin.publikasi.store'); 
+    
+    
+    Route::get('/admin/anggotapublikasi/{$id}/add', 'AnggotaController@create')->name('admin.anggotapublikasi.create'); 
+    Route::get('/admin/anggotapublikasi/{id}', 'AnggotaController@index')->name('admin.anggotapublikasi.index'); 
+    Route::delete('/admin/publikasi/{publikasi}', 'PublikasiController@destroy')->name('admin.publikasi.destroy'); 
 
     Route::get('pembimbing/submit', 'PembimbingSubmissionController@create')->name('admin.pembimbing.create');
     Route::post('pembimbing/submit', 'PembimbingSubmissionController@store')->name('admin.pembimbing.store');
