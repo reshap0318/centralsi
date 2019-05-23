@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group( function(){
     Route::get('/admin/publikasi/{publikasi}', 'PublikasiController@show')->name('admin.publikasi.show'); //routing tampilkan detail mahasiswa
     Route::get('/admin/publikasi/{publikasi}/edit', 'PublikasiController@edit')->name('admin.publikasi.edit');  //routing tampilkan form edit mahasiswa
     Route::get('/admin/publikasi', 'PublikasiController@index')->name('admin.publikasi.index');  //routing lihat daftar mahasiswa
+    Route::get('/admin/publikasi/{id}/tambah', 'PublikasiController@tambah')->name('admin.publikasi.tambah');
 
     Route::get('pembimbing/submit', 'PembimbingSubmissionController@create')->name('admin.pembimbing.create');
     Route::post('pembimbing/submit', 'PembimbingSubmissionController@store')->name('admin.pembimbing.store');

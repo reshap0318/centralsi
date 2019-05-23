@@ -64,5 +64,21 @@ class PublikasiController extends Controller
     public function edit(Publikasi $publikasi)
     {
 		return view('backend.publikasi.edit', compact('publikasi'));
-    }
+		}
+		public function tambah($id)
+		{
+
+			dd($id);	
+			  $Publikasi = Publikasi::findOrFail($id);
+				$dosen = Dosen::pluck('nama', 'id');
+				return view('backend.publikasi.tambah');
+		}
+		public function tambahanggota(Request $Request)
+		{
+			$this->validate($request, $this->anggota_validation_rules);
+			$data = $request->all();
+			Publikasi::create($data);
+			session()->flash('flash_success', 'Berhasil menambahkan data anggota KP');
+			return redirect()->route('admin.publikasi.showkelompok',$request->publikasi_id);
+		}
 }

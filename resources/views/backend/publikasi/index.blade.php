@@ -46,16 +46,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse($publikasis as $publikasi)
+                        @forelse($publikasis as $publikas)
                             <tr>
-                                <td class="text-center">{{ $publikasi->tahun }}</td>
+                                <td class="text-center">{{ $publikasi->id }}</td>
                                 <td>{{ $publikasi->judul }}</td>
                                 <td class="text-center">{{$publikasi->anggotas->count()}}</td>
                                 <td class="text-center">
                                     {!! cui_btn_view(route('admin.publikasi.show', [$publikasi->id])) !!}
                                     {!! cui_btn_edit(route('admin.publikasi.edit', [$publikasi->id])) !!}
                                     {!! cui_btn_delete(route('admin.publikasi.destroy', [$publikasi->id]), "Anda yakin akan menghapus data publikasi ini?") !!}
-                                    {!! cui_btn(route('admin.publikasi.index', [$publikasi->id]), 'icon-people','Anggota')!!}
+                                    {!! cui_btn(route('admin/publikasi/{id}/tambah', ['id' => $publikasi->id]), 'icon-people','Anggota')!!}
                                 </td>
                             </tr>
                         @empty
