@@ -57,7 +57,7 @@ class PublikasiController extends Controller
     		$filepath = $request->publisher->storeAs('publikasi_publisher', $filenameext);
     		$publikasi->publisher = $filepath;
     	}
-    	$publikasi->save();
+    	$publikasi->save(s);
 
     	return redirect()->route('admin.publikasi.index', [$publikasi]);
     }
