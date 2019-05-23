@@ -59,7 +59,7 @@ class PublikasiController extends Controller
     	}
     	$publikasi->save();
 
-    	return redirect()->route('admin.publikasi.show', [$publikasi]);
+    	return redirect()->route('admin.publikasi.index', [$publikasi]);
     }
     public function edit(Publikasi $publikasi)
     {
@@ -80,5 +80,16 @@ class PublikasiController extends Controller
 			Publikasi::create($data);
 			session()->flash('flash_success', 'Berhasil menambahkan data anggota KP');
 			return redirect()->route('admin.publikasi.showkelompok',$request->publikasi_id);
+		}
+		public function destroy($id)
+		{
+			$publikasi = publikasi::find($id);
+			$publikasi->delete();
+			session()->flash('flash_success','berhasil menghapus data publikasi');
+			return redirect()->route('admin.publikasi.index');
+		}
+		public function show(Publikasi $publikasi)
+    {
+		return view('backend.publikasi.show', compact('publikasi'));
 		}
 }
